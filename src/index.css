@@ -1,0 +1,113 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    /* JLStudios Brand Colors - All HSL */
+    --background: 0 0% 100%;
+    --foreground: 217 65% 12%; /* #111827 near-black */
+
+    --card: 0 0% 100%;
+    --card-foreground: 217 65% 12%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 217 65% 12%;
+
+    /* Primary - Near Black #111827 */
+    --primary: 217 65% 12%;
+    --primary-foreground: 0 0% 100%;
+
+    /* Secondary - Neutral Light #F3F4F6 */
+    --secondary: 220 14% 96%;
+    --secondary-foreground: 217 65% 12%;
+
+    /* Muted */
+    --muted: 220 14% 96%;
+    --muted-foreground: 215 16% 47%;
+
+    /* Accent - Indigo #6366F1 */
+    --accent: 239 84% 67%;
+    --accent-foreground: 0 0% 100%;
+
+    /* Support/Cyan #06B6D4 */
+    --cyan: 187 95% 43%;
+    --cyan-foreground: 0 0% 100%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 220 14% 91%;
+    --input: 220 14% 91%;
+    --ring: 239 84% 67%;
+
+    --radius: 1rem;
+
+    /* Custom design tokens */
+    --shadow-soft: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+    --shadow-medium: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+    --shadow-large: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+    
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-fast: all 0.15s ease-out;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+
+  /* CHANGE: Noise texture for depth */
+  body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    opacity: 0.02;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+    z-index: 9999;
+    mix-blend-mode: overlay;
+  }
+}
+
+/* CHANGE: Custom utility classes for micro-animations and styling */
+@layer components {
+  /* Micro-motion on CTAs */
+  .cta-hover {
+    @apply transition-all duration-200 ease-out;
+  }
+  .cta-hover:hover {
+    @apply -translate-y-0.5 scale-[1.02];
+  }
+
+  /* Animated underline links */
+  .link-underline {
+    @apply relative inline-block;
+  }
+  .link-underline::after {
+    content: '';
+    @apply absolute bottom-0 left-0 w-full h-px bg-current scale-x-0 origin-left transition-transform duration-300 ease-out;
+  }
+  .link-underline:hover::after {
+    @apply scale-x-100;
+  }
+
+  /* Section divider */
+  .section-divider {
+    @apply border-t border-border/10;
+  }
+}
