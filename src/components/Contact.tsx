@@ -23,6 +23,8 @@ import {
 import { useToast } from "@/hooks/use-toast";
 import { MessageCircle } from "lucide-react";
 import { useTranslation, type Language } from "@/i18n";
+import { getWhatsAppLink } from "@/lib/contactLinks";
+const FORMSPREE_ENDPOINT = "https://formspree.io/f/xzzqygrj";
 
 interface ContactProps {
   currentLang: string;
@@ -82,7 +84,7 @@ const Contact = ({ currentLang }: ContactProps) => {
 
     try {
       // Submit to Formspree (replace with your Formspree endpoint)
-      const response = await fetch("https://formspree.io/f/YOUR_FORM_ID", {
+      const response = await fetch(FORMSPREE_ENDPOINT, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -147,13 +149,14 @@ const Contact = ({ currentLang }: ContactProps) => {
                 asChild
               >
                 <a
-                  href="https://wa.me/YOUR_NUMBER?text=Hi%20JLStudios%2C%20I'd%20like%20a%20website%20in%2048%20hours"
+                  href={getWhatsAppLink(currentLang)}
                   target="_blank"
                   rel="noopener noreferrer"
                 >
                   {t.whatsappButton}
                 </a>
               </Button>
+
             </div>
           </div>
 

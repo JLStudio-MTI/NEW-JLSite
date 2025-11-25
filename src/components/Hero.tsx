@@ -2,6 +2,8 @@ import { Button } from "@/components/ui/button";
 import { Check, Clock, FileText, Smartphone } from "lucide-react";
 import { useTranslation, type Language } from "@/i18n";
 import { Badge } from "@/components/ui/badge";
+import { getWhatsAppLink } from "@/lib/contactLinks";
+
 
 interface HeroProps {
   currentLang: string;
@@ -48,10 +50,11 @@ const Hero = ({ currentLang }: HeroProps) => {
                 <a href="#contact">{t.cta.primary}</a>
               </Button>
               <Button size="lg" variant="outline" className="cta-hover text-base px-8 border-2" asChild>
-                <a href="https://wa.me/YOUR_NUMBER?text=Hi%20JLStudios%2C%20I'd%20like%20a%20website%20in%2048%20hours" target="_blank" rel="noopener noreferrer">
+                <a href={getWhatsAppLink(currentLang)} target="_blank" rel="noopener noreferrer">
                   {t.cta.secondary}
                 </a>
               </Button>
+
             </div>
 
             {/* CHANGE: Better card styling with icon chips */}

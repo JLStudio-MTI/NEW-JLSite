@@ -1,4 +1,5 @@
 import { Mail, MessageCircle } from "lucide-react";
+import { getWhatsAppLink } from "@/lib/contactLinks";
 
 interface FooterProps {
   currentLang: string;
@@ -67,10 +68,10 @@ const Footer = ({ currentLang }: FooterProps) => {
                 {t.email}
               </a>
               <a
-                href="https://wa.me/YOUR_NUMBER"
+                href={getWhatsAppLink(currentLang)}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-2 text-primary-foreground/80 hover:text-cyan transition-colors"
+                className="flex items-center gap-2 text-primary-foreground/80 hover:text-accent transition-colors"
               >
                 <MessageCircle className="w-4 h-4" />
                 {t.whatsapp}

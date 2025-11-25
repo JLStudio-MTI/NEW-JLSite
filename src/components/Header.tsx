@@ -1,6 +1,8 @@
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
+import { getWhatsAppLink } from "@/lib/contactLinks";
+
 
 interface HeaderProps {
   currentLang: string;
@@ -79,13 +81,14 @@ const Header = ({ currentLang, onLanguageToggle }: HeaderProps) => {
               asChild
             >
               <a
-                href="https://wa.me/YOUR_NUMBER?text=Hi%20JLStudios%2C%20I'd%20like%20a%20website%20in%2048%20hours"
+                href={getWhatsAppLink(currentLang)}
                 target="_blank"
                 rel="noopener noreferrer"
               >
                 {currentLang === "en" ? "WhatsApp Us" : "Escríbenos"}
               </a>
             </Button>
+
             <Button
               size="sm"
               asChild
@@ -136,7 +139,7 @@ const Header = ({ currentLang, onLanguageToggle }: HeaderProps) => {
                   className="w-full"
                 >
                   <a
-                    href="https://wa.me/YOUR_NUMBER?text=Hi%20JLStudios%2C%20I'd%20like%20a%20website%20in%2048%20hours"
+                    href={getWhatsAppLink(currentLang)}
                     target="_blank"
                     rel="noopener noreferrer"
                   >
