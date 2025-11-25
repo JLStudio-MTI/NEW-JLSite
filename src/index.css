@@ -57,6 +57,9 @@ All colors MUST be HSL.
     --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     --transition-fast: all 0.15s ease-out;
   }
+  html {
+    scroll-behavior: smooth;
+  }
 }
 
 @layer base {
@@ -109,5 +112,30 @@ All colors MUST be HSL.
   /* Section divider */
   .section-divider {
     @apply border-t border-border/10;
+  }
+}
+/* === Blob animation === */
+/* === Blob animation === */
+@keyframes blob-float {
+  0% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  25% {
+    transform: translate3d(80px, -60px, 0) scale(1.1);
+  }
+  50% {
+    transform: translate3d(-70px, 50px, 0) scale(0.9);
+  }
+  75% {
+    transform: translate3d(60px, 40px, 0) scale(1.05);
+  }
+  100% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+}
+
+@layer utilities {
+  .blob-animate {
+    animation: blob-float 12s ease-in-out infinite;
   }
 }

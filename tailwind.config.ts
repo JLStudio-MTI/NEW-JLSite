@@ -1,4 +1,6 @@
 import type { Config } from "tailwindcss";
+import tailwindcssAnimate from "tailwindcss-animate";
+
 
 export default {
   darkMode: ["class"],
@@ -120,6 +122,20 @@ export default {
             transform: "scale(1)",
           },
         },
+        blob: {
+          "0%": {
+            transform: "translate3d(0,0,0) scale(1)",
+          },
+          "33%": {
+            transform: "translate3d(20px,-30px,0) scale(1.05)",
+          },
+          "66%": {
+            transform: "translate3d(-15px,20px,0) scale(0.98)",
+          },
+          "100%": {
+            transform: "translate3d(0,0,0) scale(1)",
+          },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.3s ease-out",
@@ -127,8 +143,10 @@ export default {
         "fade-in": "fade-in 0.6s ease-out",
         "slide-up": "slide-up 0.6s ease-out",
         "scale-in": "scale-in 0.4s ease-out",
+        "blob-slow": "blob 22s ease-in-out infinite",
       },
     },
   },
-  plugins: [require("tailwindcss-animate")],
+  plugins: [tailwindcssAnimate],
+
 } satisfies Config;
