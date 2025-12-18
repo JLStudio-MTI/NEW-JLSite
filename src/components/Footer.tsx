@@ -8,7 +8,7 @@ interface FooterProps {
 const Footer = ({ currentLang }: FooterProps) => {
   const content = {
     en: {
-      email: "hello@jlstudios.com",
+      email: "jlstudios32@jlstudios.com",
       whatsapp: "WhatsApp",
       privacy: "Privacy Policy",
       terms: "Terms of Service",
@@ -22,7 +22,7 @@ const Footer = ({ currentLang }: FooterProps) => {
       },
     },
     es: {
-      email: "hola@jlstudios.com",
+      email: "jlstudios32@jlstudios.com",
       whatsapp: "WhatsApp",
       privacy: "Política de Privacidad",
       terms: "Términos de Servicio",

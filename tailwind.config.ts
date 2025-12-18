@@ -144,7 +144,14 @@ export default {
         "slide-up": "slide-up 0.6s ease-out",
         "scale-in": "scale-in 0.4s ease-out",
         "blob-slow": "blob 22s ease-in-out infinite",
+        
       },
+      scanline: {
+        "0%": { transform: "translateY(0)", opacity: "0" },
+        "20%": { opacity: "1" },
+        "100%": { transform: "translateY(220px)", opacity: "0" },
+      },
+
     },
   },
   plugins: [tailwindcssAnimate],
