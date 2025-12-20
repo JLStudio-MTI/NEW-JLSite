@@ -98,34 +98,58 @@ const Services = ({ currentLang }: ServicesProps) => {
         </div>
 
         <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-          {t.services.map((service, index) => (
-            <Card
-              key={index}
-              className="border border-border/50 hover:border-accent/40 transition-all hover:shadow-lg animate-scale-in group"
-              style={{ animationDelay: `${index * 0.1}s` }}
-            >
-              <CardHeader>
-                <div className="relative w-12 h-12 mb-4">
-                  <div className="absolute inset-0 bg-accent/10 rounded-xl blur-sm group-hover:bg-accent/20 transition-colors"></div>
-                  <div className="relative w-12 h-12 bg-accent/10 rounded-xl flex items-center justify-center">
-                    <service.icon className="w-6 h-6 text-accent" />
+          {t.services.map((service, index) => {
+            const isFeatured = index === 0;
+
+            return (
+              <Card
+                key={index}
+                className={[
+                  "relative overflow-hidden",
+                  "rounded-2xl border border-white/10 bg-white/5 backdrop-blur-xl",
+                  "shadow-2xl shadow-black/30",
+                  "transition-all",
+                  "hover:border-white/20 hover:bg-white/[0.07]",
+                  "animate-scale-in",
+                  "before:absolute before:inset-x-0 before:top-0 before:h-px",
+                  "before:bg-gradient-to-r before:from-transparent before:via-white/25 before:to-transparent",
+                  isFeatured
+                    ? "ring-1 ring-white/10 bg-gradient-to-br from-white/[0.07] to-white/[0.03] -translate-y-0.5"
+                    : "",
+                ].join(" ")}
+                style={{ animationDelay: `${index * 0.1}s` }}
+              >
+                <CardHeader className="pb-3">
+                  <div className="flex items-start gap-4">
+                    <div className="relative">
+                      <div className="absolute -inset-2 rounded-2xl bg-gradient-to-br from-[#5661FF]/15 to-[#A78BFA]/10 blur-md" />
+                      <div className="relative w-12 h-12 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center">
+                        <service.icon className={["w-6 h-6", isFeatured ? "text-primary" : "text-accent"].join(" ")} />
+                      </div>
+                    </div>
+
+                    <div className="min-w-0">
+                      <CardTitle className="text-xl font-display">{service.title}</CardTitle>
+                      <CardDescription className="text-sm sm:text-base text-muted-foreground">
+                        {service.description}
+                      </CardDescription>
+                    </div>
                   </div>
-                </div>
-                <CardTitle className="text-xl font-display">{service.title}</CardTitle>
-                <CardDescription className="text-base">{service.description}</CardDescription>
-              </CardHeader>
-              <CardContent>
-                <ul className="space-y-2">
-                  {service.bullets.map((bullet, bulletIndex) => (
-                    <li key={bulletIndex} className="flex items-start gap-2 text-sm text-muted-foreground">
-                      <span className="text-accent mt-1">•</span>
-                      <span>{bullet}</span>
-                    </li>
-                  ))}
-                </ul>
-              </CardContent>
-            </Card>
-          ))}
+                </CardHeader>
+
+                <CardContent className="pt-0">
+                  <ul className="space-y-2.5">
+                    {service.bullets.map((bullet, bulletIndex) => (
+                      <li key={bulletIndex} className="flex items-start gap-2 text-sm text-muted-foreground">
+                        <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-accent/80" />
+                        <span className="leading-relaxed">{bullet}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </CardContent>
+              </Card>
+            );
+          })}
         </div>
       </div>
     </section>

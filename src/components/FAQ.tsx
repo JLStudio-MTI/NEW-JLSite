@@ -16,35 +16,43 @@ const FAQ = ({ currentLang }: FAQProps) => {
       faqs: [
         {
           question: "How fast is 48 hours really?",
-          answer: "We deliver a first version within 48 hours once we have your brief and assets (logo, photos, text). Most clients are live by the end of the week.",
+          answer:
+            "We deliver a first version within 48 hours once we have your brief and assets (logo, photos, text). Most clients are live by the end of the week.",
         },
         {
           question: "Do you help with domain and hosting?",
-          answer: "Yes! We can guide you through purchasing a domain and setting up hosting, or handle it entirely for you. We'll configure everything including SSL, email, and DNS.",
+          answer:
+            "Yes! We can guide you through purchasing a domain and setting up hosting, or handle it entirely for you. We'll configure everything including SSL, email, and DNS.",
         },
         {
           question: "What if I don't have text or photos?",
-          answer: "No problem! We can help write professional copy and use high-quality stock images to get you started. You can always update content later.",
+          answer:
+            "No problem! We can help write professional copy and use high-quality stock images to get you started. You can always update content later.",
         },
         {
           question: "How many revisions are included?",
-          answer: "One round of revisions is included with every package. Additional rounds are available if needed for a small fee.",
+          answer:
+            "One round of revisions is included with every package. Additional rounds are available if needed for a small fee.",
         },
         {
           question: "What payment methods do you accept?",
-          answer: "We accept PayPal, Stripe, bank transfer, and major credit cards. We ask for 50% upfront to start, and 50% on delivery. MXN and USD both accepted.",
+          answer:
+            "We accept PayPal, Stripe, bank transfer, and major credit cards. We ask for 50% upfront to start, and 50% on delivery. MXN and USD both accepted.",
         },
         {
           question: "Do you provide ongoing maintenance?",
-          answer: "Yes! We offer maintenance packages for updates, security, and content changes. We also provide training so you can make simple edits yourself.",
+          answer:
+            "Yes! We offer maintenance packages for updates, security, and content changes. We also provide training so you can make simple edits yourself.",
         },
         {
           question: "What makes you different from other designers?",
-          answer: "We specialize in speed and simplicity for small businesses. No confusing proposals, no long waits. Just beautiful, professional websites delivered in 48 hours.",
+          answer:
+            "We specialize in speed and simplicity for small businesses. No confusing proposals, no long waits. Just beautiful, professional websites delivered in 48 hours.",
         },
         {
           question: "Can I see examples of your work?",
-          answer: "Absolutely! Check out our Portfolio section above, or request a free mockup for your business to see our work firsthand.",
+          answer:
+            "Absolutely! Check out our Portfolio section above, or request a free mockup for your business to see our work firsthand.",
         },
       ],
     },
@@ -53,35 +61,43 @@ const FAQ = ({ currentLang }: FAQProps) => {
       faqs: [
         {
           question: "¿Qué tan rápido es realmente 48 horas?",
-          answer: "Entregamos una primera versión en 48 horas una vez que tenemos tu brief y assets (logo, fotos, texto). La mayoría de los clientes están en vivo al final de la semana.",
+          answer:
+            "Entregamos una primera versión en 48 horas una vez que tenemos tu brief y assets (logo, fotos, texto). La mayoría de los clientes están en vivo al final de la semana.",
         },
         {
           question: "¿Ayudan con dominio y hosting?",
-          answer: "¡Sí! Podemos guiarte en la compra de dominio y configuración de hosting, o manejarlo completamente. Configuramos todo incluyendo SSL, email y DNS.",
+          answer:
+            "¡Sí! Podemos guiarte en la compra de dominio y configuración de hosting, o manejarlo completamente. Configuramos todo incluyendo SSL, email y DNS.",
         },
         {
           question: "¿Qué pasa si no tengo texto o fotos?",
-          answer: "¡No hay problema! Podemos ayudar a escribir textos profesionales y usar imágenes de stock de alta calidad. Siempre puedes actualizar el contenido después.",
+          answer:
+            "¡No hay problema! Podemos ayudar a escribir textos profesionales y usar imágenes de stock de alta calidad. Siempre puedes actualizar el contenido después.",
         },
         {
           question: "¿Cuántas revisiones están incluidas?",
-          answer: "Una ronda de revisiones está incluida en cada paquete. Rondas adicionales están disponibles si es necesario por una pequeña tarifa.",
+          answer:
+            "Una ronda de revisiones está incluida en cada paquete. Rondas adicionales están disponibles si es necesario por una pequeña tarifa.",
         },
         {
           question: "¿Qué métodos de pago aceptan?",
-          answer: "Aceptamos PayPal, Stripe, transferencia bancaria y tarjetas principales. Pedimos 50% al inicio y 50% al entregar. MXN y USD aceptados.",
+          answer:
+            "Aceptamos PayPal, Stripe, transferencia bancaria y tarjetas principales. Pedimos 50% al inicio y 50% al entregar. MXN y USD aceptados.",
         },
         {
           question: "¿Proveen mantenimiento continuo?",
-          answer: "¡Sí! Ofrecemos paquetes de mantenimiento para actualizaciones, seguridad y cambios de contenido. También damos entrenamiento para que hagas ediciones simples.",
+          answer:
+            "¡Sí! Ofrecemos paquetes de mantenimiento para actualizaciones, seguridad y cambios de contenido. También damos entrenamiento para que hagas ediciones simples.",
         },
         {
           question: "¿Qué los hace diferentes de otros diseñadores?",
-          answer: "Nos especializamos en velocidad y simplicidad para pequeños negocios. Sin propuestas confusas, sin largas esperas. Solo sitios hermosos y profesionales en 48 horas.",
+          answer:
+            "Nos especializamos en velocidad y simplicidad para pequeños negocios. Sin propuestas confusas, sin largas esperas. Solo sitios hermosos y profesionales en 48 horas.",
         },
         {
           question: "¿Puedo ver ejemplos de su trabajo?",
-          answer: "¡Por supuesto! Revisa nuestra sección de Portafolio arriba, o solicita un mockup gratis para tu negocio y ve nuestro trabajo de primera mano.",
+          answer:
+            "¡Por supuesto! Revisa nuestra sección de Portafolio arriba, o solicita un mockup gratis para tu negocio y ve nuestro trabajo de primera mano.",
         },
       ],
     },
@@ -102,12 +118,12 @@ const FAQ = ({ currentLang }: FAQProps) => {
               <AccordionItem
                 key={index}
                 value={`item-${index}`}
-                className="bg-card border border-border/50 rounded-2xl px-6 hover:border-accent/30 hover:shadow-md transition-all"
+                className="rounded-2xl border border-white/10 bg-white/5 backdrop-blur-xl hover:border-white/20 hover:bg-white/[0.07] transition-colors px-6"
               >
-                <AccordionTrigger className="text-left font-semibold text-foreground hover:text-accent hover:no-underline">
+                <AccordionTrigger className="text-left font-semibold text-foreground/90 hover:text-foreground hover:no-underline py-5">
                   {faq.question}
                 </AccordionTrigger>
-                <AccordionContent className="text-muted-foreground">
+                <AccordionContent className="text-muted-foreground leading-relaxed pb-5">
                   {faq.answer}
                 </AccordionContent>
               </AccordionItem>

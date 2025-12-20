@@ -26,7 +26,8 @@ const Index = () => {
   };
 
     return (
-    <div className="min-h-screen relative overflow-hidden">
+    <div className="min-h-screen relative overflow-x-hidden">
+
       {/* Dynamic gradient blobs in the background */}
       <div className="pointer-events-none absolute inset-0 z-0">
         {/* Center main hero glow */}

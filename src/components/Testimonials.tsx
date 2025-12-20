@@ -51,6 +51,13 @@ const Testimonials = ({ currentLang }: TestimonialsProps) => {
 
   const t = content[currentLang as keyof typeof content];
 
+  const getInitials = (name: string) => {
+    const parts = name.replace(/\./g, "").trim().split(" ");
+    const first = parts[0]?.[0] ?? "";
+    const last = parts.length > 1 ? parts[parts.length - 1]?.[0] ?? "" : "";
+    return (first + last).toUpperCase();
+    };
+
   return (
     <section className="py-20 px-4 bg-background">
       <div className="container mx-auto">
@@ -59,26 +66,45 @@ const Testimonials = ({ currentLang }: TestimonialsProps) => {
         </h2>
 
         <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-          {t.testimonials.map((testimonial, index) => (
-            <Card
-              key={index}
-              className="border-2 hover:border-accent/50 transition-all hover:shadow-medium animate-fade-in"
-              style={{ animationDelay: `${index * 0.1}s` }}
-            >
-              <CardContent className="pt-6">
-                <div className="flex gap-1 mb-4">
-                  {[...Array(5)].map((_, i) => (
-                    <Star key={i} className="w-5 h-5 fill-accent text-accent" />
-                  ))}
+          {t.testimonials.map((testimonial, index) => {
+            const initials = getInitials(testimonial.author);
+
+            return (
+              <Card
+                key={index}
+                className="relative overflow-hidden rounded-2xl border border-white/10 bg-white/5 backdrop-blur-xl shadow-2xl shadow-black/30 hover:border-white/20 hover:bg-white/[0.07] transition-all animate-fade-in"
+                style={{ animationDelay: `${index * 0.1}s` }}
+              >
+                <div className="absolute right-6 top-6 text-white/5 text-6xl leading-none select-none">
+                  “
                 </div>
-                <p className="text-foreground mb-6 italic">"{testimonial.quote}"</p>
-                <div>
-                  <p className="font-semibold text-foreground">{testimonial.author}</p>
-                  <p className="text-sm text-muted-foreground">{testimonial.role}</p>
-                </div>
-              </CardContent>
-            </Card>
-          ))}
+
+                <CardContent className="pt-6">
+                  <div className="flex items-center justify-between mb-5">
+                    <div className="flex items-center gap-3">
+                      <div className="h-10 w-10 rounded-full bg-primary/15 text-primary font-semibold flex items-center justify-center">
+                        {initials}
+                      </div>
+                      <div className="leading-tight">
+                        <p className="font-semibold text-foreground">{testimonial.author}</p>
+                        <p className="text-sm text-muted-foreground">{testimonial.role}</p>
+                      </div>
+                    </div>
+
+                    <div className="flex gap-1">
+                      {[...Array(5)].map((_, i) => (
+                        <Star key={i} className="w-4 h-4 fill-accent/80 text-accent/80" />
+                      ))}
+                    </div>
+                  </div>
+
+                  <p className="text-base sm:text-lg text-foreground/90 leading-relaxed">
+                    {testimonial.quote}
+                  </p>
+                </CardContent>
+              </Card>
+            );
+          })}
         </div>
       </div>
     </section>
